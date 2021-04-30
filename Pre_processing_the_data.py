@@ -60,7 +60,7 @@ y_frame=pd.DataFrame()
 y_frame['subject ids']=y_train
 y_frame.groupby(['subject ids']).size().plot.bar(figsize=(15,8),
                 title="Number of Samples for Each Classes")
-plt.show() # show the plot of training samples
+# plt.show() # show the plot of training samples
 
 
 #finding the optimum number of components 
@@ -73,4 +73,9 @@ plt.plot(pca.explained_variance_, linewidth=2)
  
 plt.xlabel('Components')
 plt.ylabel('Explained Variaces')
-plt.show()
+# plt.show()
+
+#computing the pca with 90 components 
+n_components = 90
+pca=PCA(n_components=n_components, whiten=True)
+pca.fit(X_train)
